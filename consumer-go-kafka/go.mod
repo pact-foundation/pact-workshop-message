@@ -4,7 +4,7 @@ go 1.21
 
 require (
 	github.com/confluentinc/confluent-kafka-go/v2 v2.6.0
-	github.com/gin-gonic/gin v1.10.0
+	github.com/gin-gonic/gin v1.10.1
 	github.com/pact-foundation/pact-go/v2 v2.0.8
 	github.com/stretchr/testify v1.9.0
 )
