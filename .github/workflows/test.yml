@@ -42,6 +42,7 @@ jobs:
 
   test:
     name: ${{matrix.project}}-${{matrix.os}}
+    if: ${{ fromJSON(needs.changes.outputs.projects) != '' }}
     # if: ${{ matrix.project == 'rust' || matrix.project == 'dotnet' || matrix.project == 'go' || matrix.project == 'java' || matrix.project == 'js' || matrix.project == 'python' }}
     needs: changes
     strategy:
