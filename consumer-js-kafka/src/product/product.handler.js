@@ -1,6 +1,6 @@
 const repository = require("./product.repository");
 const Product = require("./product");
-
+ 
 const handler = (product) => {
   console.log("received product:", product);
   console.log("received product event:", product.event);
