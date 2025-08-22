@@ -30,6 +30,7 @@ jobs:
         name: check changes rust
         with:
           base: main
+          ref: ${{ github.sha }}
           filters: |
             src:
               - '**-rust-**/**'
@@ -38,6 +39,7 @@ jobs:
         name: check changes dotnet
         with:
           base: main
+          ref: ${{ github.sha }}
           filters: |
             src:
               - '**-dotnet-**/**'
@@ -46,6 +48,7 @@ jobs:
         name: check changes go
         with:
           base: main
+          ref: ${{ github.sha }}
           filters: |
             src:
               - '**-go-**/**'
@@ -54,6 +57,7 @@ jobs:
         name: check changes java
         with:
           base: main
+          ref: ${{ github.sha }}
           filters: |
             src:
               - '**-java-**/**'
@@ -62,6 +66,7 @@ jobs:
         name: check changes javascript
         with:
           base: main
+          ref: ${{ github.sha }}
           filters: |
             src:
               - '**-js-**/**'
@@ -70,9 +75,10 @@ jobs:
         name: check changes python
         with:
           base: main
+          ref: ${{ github.sha }}
           filters: |
             src:
-              - '**-python-**/'
+              - '**-python-**/**'
 
   test:
     name: ${{matrix.project}}-${{matrix.os}}
@@ -87,17 +93,17 @@ jobs:
           - macos-14
         include:
           - project: rust
-            run: ${{ needs.changes.outputs.rust == 'true' }}
+            if: ${{ needs.changes.outputs.rust == 'true' }}
           - project: dotnet
-            run: ${{ needs.changes.outputs.dotnet == 'true' }}
+            if: ${{ needs.changes.outputs.dotnet == 'true' }}
           - project: go
-            run: ${{ needs.changes.outputs.go == 'true' }}
+            if: ${{ needs.changes.outputs.go == 'true' }}
           - project: java
-            run: ${{ needs.changes.outputs.java == 'true' }}
+            if: ${{ needs.changes.outputs.java == 'true' }}
           - project: js
-            run: ${{ needs.changes.outputs.js == 'true' }}
+            if: ${{ needs.changes.outputs.js == 'true' }}
           - project: python
-            run: ${{ needs.changes.outputs.python == 'true' }}
+            if: ${{ needs.changes.outputs.python == 'true' }}
       fail-fast: false
     runs-on: ${{ matrix.os }}
     defaults:
