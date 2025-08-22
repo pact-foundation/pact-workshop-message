@@ -66,22 +66,16 @@ jobs:
           - macos-14
         include:
           - project: rust
-            os: ubuntu-latest
             run: ${{ needs.changes.outputs.rust == 'true' }}
           - project: dotnet
-            os: ubuntu-latest
             run: ${{ needs.changes.outputs.dotnet == 'true' }}
           - project: go
-            os: ubuntu-latest
             run: ${{ needs.changes.outputs.go == 'true' }}
           - project: java
-            os: ubuntu-latest
             run: ${{ needs.changes.outputs.java == 'true' }}
           - project: js
-            os: ubuntu-latest
             run: ${{ needs.changes.outputs.js == 'true' }}
           - project: python
-            os: ubuntu-latest
             run: ${{ needs.changes.outputs.python == 'true' }}
       fail-fast: false
     runs-on: ${{ matrix.os }}
