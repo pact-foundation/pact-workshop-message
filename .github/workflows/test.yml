@@ -31,42 +31,42 @@ jobs:
         with:
           filters: |
             src:
-              - '*-rust-*'
+              - '**-rust-**'
       - uses: dorny/paths-filter@v3
         id: changes_dotnet
         name: check changes dotnet
         with:
           filters: |
             src:
-              - '*-dotnet-*'
+              - '**-dotnet-**'
       - uses: dorny/paths-filter@v3
         id: changes_go
         name: check changes go
         with:
           filters: |
             src:
-              - '*-go-*'
+              - '**-go-**'
       - uses: dorny/paths-filter@v3
         id: changes_java
         name: check changes java
         with:
           filters: |
             src:
-              - '*-java-*'
+              - '**-java-**'
       - uses: dorny/paths-filter@v3
         id: changes_js
         name: check changes javascript
         with:
           filters: |
             src:
-              - '*-js-*'
+              - '**-js-**'
       - uses: dorny/paths-filter@v3
         id: changes_python
         name: check changes python
         with:
           filters: |
             src:
-              - '*-python-*'
+              - '**-python-**'
 
   test:
     name: ${{matrix.project}}-${{matrix.os}}
