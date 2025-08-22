@@ -2,7 +2,15 @@ name: test
 
 on:
   push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
 
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref || github.run_id }}
+  cancel-in-progress: ${{ github.event_name == 'pull_request' }}
 jobs:
 
 # Job to determine which projects have changed
