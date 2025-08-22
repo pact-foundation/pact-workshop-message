@@ -22,7 +22,7 @@ jobs:
       - uses: actions/checkout@v4
       - uses: dorny/paths-filter@v3
         id: changes
-        name: check changes rust
+        name: check changes
         with:
           base: main
           ref: ${{ github.sha }}
@@ -42,7 +42,7 @@ jobs:
 
   test:
     name: ${{matrix.project}}-${{matrix.os}}
-    if: ${{ fromJSON(needs.changes.outputs.projects) != '' }}
+    if: ${{ needs.changes.outputs.projects != '' }}
     # if: ${{ matrix.project == 'rust' || matrix.project == 'dotnet' || matrix.project == 'go' || matrix.project == 'java' || matrix.project == 'js' || matrix.project == 'python' }}
     needs: changes
     strategy:
