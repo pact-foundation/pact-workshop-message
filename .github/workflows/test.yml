@@ -21,7 +21,7 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - uses: dorny/paths-filter@v3
-        id: changes
+        id: filter
         name: check changes
         with:
           base: main
@@ -53,19 +53,6 @@ jobs:
           - macos-13
           - macos-14
         project: ${{ fromJSON(needs.changes.outputs.projects) }}
-        # include:
-        #   - project: rust
-        #     if: ${{ needs.changes.outputs.rust == 'true' }}
-        #   - project: dotnet
-        #     if: ${{ needs.changes.outputs.dotnet == 'true' }}
-        #   - project: go
-        #     if: ${{ needs.changes.outputs.go == 'true' }}
-        #   - project: java
-        #     if: ${{ needs.changes.outputs.java == 'true' }}
-        #   - project: js
-        #     if: ${{ needs.changes.outputs.js == 'true' }}
-        #   - project: python
-        #     if: ${{ needs.changes.outputs.python == 'true' }}
       fail-fast: false
     runs-on: ${{ matrix.os }}
     defaults:
