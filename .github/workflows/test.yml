@@ -4,8 +4,59 @@ on:
   push:
 
 jobs:
+
+# Job to determine which projects have changed
+  changes:
+    runs-on: ubuntu-latest
+    outputs:
+      rust: ${{ steps.changes_rust.outputs.src }}
+      dotnet: ${{ steps.changes_dotnet.outputs.src }}
+      go: ${{ steps.changes_go.outputs.src }}
+      java: ${{ steps.changes_java.outputs.src }}
+      js: ${{ steps.changes_js.outputs.src }}
+      python: ${{ steps.changes_python.outputs.src }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: dorny/paths-filter@v3
+        id: changes_rust
+        with:
+          filters: |
+            src:
+              - '*-rust-*'
+      - uses: dorny/paths-filter@v3
+        id: changes_dotnet
+        with:
+          filters: |
+            src:
+              - '*-dotnet-*'
+      - uses: dorny/paths-filter@v3
+        id: changes_go
+        with:
+          filters: |
+            src:
+              - '*-go-*'
+      - uses: dorny/paths-filter@v3
+        id: changes_java
+        with:
+          filters: |
+            src:
+              - '*-java-*'
+      - uses: dorny/paths-filter@v3
+        id: changes_js
+        with:
+          filters: |
+            src:
+              - '*-js-*'
+      - uses: dorny/paths-filter@v3
+        id: changes_python
+        with:
+          filters: |
+            src:
+              - '*-python-*'
+
   test:
     name: ${{matrix.project}}-${{matrix.os}}
+    needs: changes
     strategy:
       matrix:
         os: 
@@ -13,13 +64,25 @@ jobs:
           - windows-latest
           - macos-13
           - macos-14
-        project:
-          - rust
-          - dotnet
-          - go
-          - java
-          - js
-          - python
+        include:
+          - project: rust
+            os: ubuntu-latest
+            run: ${{ needs.changes.outputs.rust == 'true' }}
+          - project: dotnet
+            os: ubuntu-latest
+            run: ${{ needs.changes.outputs.dotnet == 'true' }}
+          - project: go
+            os: ubuntu-latest
+            run: ${{ needs.changes.outputs.go == 'true' }}
+          - project: java
+            os: ubuntu-latest
+            run: ${{ needs.changes.outputs.java == 'true' }}
+          - project: js
+            os: ubuntu-latest
+            run: ${{ needs.changes.outputs.js == 'true' }}
+          - project: python
+            os: ubuntu-latest
+            run: ${{ needs.changes.outputs.python == 'true' }}
       fail-fast: false
     runs-on: ${{ matrix.os }}
     defaults:
