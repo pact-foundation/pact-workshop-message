@@ -3,7 +3,7 @@ module github.com/pactflow/example-provider-golang
 go 1.23
 
 require (
-	github.com/confluentinc/confluent-kafka-go/v2 v2.6.0
+	github.com/confluentinc/confluent-kafka-go/v2 v2.11.1
 	github.com/gin-gonic/gin v1.10.1
 	github.com/google/uuid v1.6.0
 	github.com/pact-foundation/pact-go/v2 v2.4.1
