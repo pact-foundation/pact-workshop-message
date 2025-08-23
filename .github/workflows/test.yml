@@ -97,7 +97,7 @@ jobs:
       - uses: actions/setup-python@v5
         if: ${{ matrix.project == 'python' }}
         with:
-          python-version: '3.11.5'
+          python-version: '3.13.7'
       - name: install (consumer)
         run: make install
         if: ${{matrix.project == 'js'||matrix.project == 'go'||matrix.project == 'python'}}
