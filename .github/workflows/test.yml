@@ -64,7 +64,7 @@ jobs:
         if: ${{ matrix.project == 'rust' }}
         with:
           cache: false
-      - uses: actions/setup-go@v5
+      - uses: actions/setup-go@v6
         if: ${{ matrix.project == 'go' }}
         with:
           go-version: '^1.22.x'
