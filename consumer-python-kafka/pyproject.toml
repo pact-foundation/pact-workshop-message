@@ -18,7 +18,7 @@ python = "^3.11"
 confluent-kafka = "^2.6.0"
 
 [tool.poetry.dev-dependencies]
-pytest = "8.4.1"
+pytest = "8.4.2"
 pytest-asyncio = "^1.0.0"
 pytest-mock = "^3.14.0"
 pact-python = "^2.2.2"
