@@ -1,15 +1,14 @@
 const {
-  MatchersV3,
-  MessageConsumerPact,
-  asynchronousBodyHandler,
+  Matchers,
+  v4AsynchronousBodyHandler,
+  Pact,
 } = require("@pact-foundation/pact");
-const productEventHandler = require('./product.handler')
-const { like, regex } = MatchersV3;
-
+const productEventHandler = require("./product.handler")
+const { like, regex } = Matchers;
 const path = require("path");
 
 describe("Kafka handler", () => {
-  const messagePact = new MessageConsumerPact({
+  const messagePact = new Pact({
     consumer: "pactflow-example-consumer-js-kafka",
     dir: path.resolve(process.cwd(), "pacts"),
     pactfileWriteMode: "update",
@@ -20,19 +19,22 @@ describe("Kafka handler", () => {
   describe("receive a product update", () => {
     it("accepts a product event", () => {
       return messagePact
-        .expectsToReceive("a product event update")
-        .withContent({
-          id: like("some-uuid-1234-5678"),
-          type: like("Product Range"),
-          name: like("Some Product"),
-          version: like("v1"),
-          event: regex("^(CREATED|UPDATED|DELETED)$","UPDATED"),
+        .addAsynchronousInteraction()
+        .expectsToReceive("a product event update", (builder) => {
+          builder
+            .withJSONContent({
+              id: like("some-uuid-1234-5678"),
+              type: like("Product Range"),
+              name: like("Some Product"),
+              version: like("v1"),
+              event: regex("^(CREATED|UPDATED|DELETED)$", "UPDATED"),
+            })
+            .withMetadata({
+              "contentType": "application/json",
+              "kafka_topic": "products",
+            });
         })
-        .withMetadata({
-          "contentType": "application/json",
-          "kafka_topic": "products",
-        })
-        .verify(asynchronousBodyHandler(productEventHandler));
+        .executeTest(v4AsynchronousBodyHandler(productEventHandler));
     });
   });
 });
