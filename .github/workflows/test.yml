@@ -19,8 +19,8 @@ jobs:
     outputs:
       projects: ${{ steps.filter.outputs.changes }}
     steps:
-      - uses: actions/checkout@v5
-      - uses: dorny/paths-filter@v3
+      - uses: actions/checkout@v6
+      - uses: dorny/paths-filter@v4
         id: filter
         name: check changes
         with:
@@ -59,7 +59,7 @@ jobs:
       run:
         shell: bash
     steps:
-      - uses: actions/checkout@v5
+      - uses: actions/checkout@v6
       - uses: actions-rust-lang/setup-rust-toolchain@v1
         if: ${{ matrix.project == 'rust' }}
         with:
@@ -90,14 +90,14 @@ jobs:
         with:
           distribution: 'zulu'
           java-version: '17'
-      - uses: actions/setup-node@v5
+      - uses: actions/setup-node@v6
         if: ${{ matrix.project == 'js' }}
         with:
-          node-version: 22
+          node-version: 24
       - uses: actions/setup-python@v6
         if: ${{ matrix.project == 'python' }}
         with:
-          python-version: '3.13.7'
+          python-version: '3.14.3'
       - name: install (consumer)
         run: make install
         if: ${{matrix.project == 'js'||matrix.project == 'go'||matrix.project == 'python'}}
