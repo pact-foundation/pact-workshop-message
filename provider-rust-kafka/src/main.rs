@@ -175,7 +175,7 @@ mod tests {
             _interaction_id: Option<String>,
             _provider_state: &ProviderState,
             _setup: bool,
-            _client: Option<&Client>,
+            _client: std::option::Option<&reqwest::Client>,
         ) -> anyhow::Result<HashMap<String, Value>> {
             Ok(hashmap! {})
         }
