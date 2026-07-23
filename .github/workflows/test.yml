@@ -95,7 +95,7 @@ jobs:
         if: ${{ matrix.project == 'js' }}
         with:
           node-version: 24
-      - uses: actions/setup-python@v6
+      - uses: actions/setup-python@v7
         if: ${{ matrix.project == 'python' }}
         with:
           python-version: '3.14.6'
