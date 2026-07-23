@@ -3,7 +3,7 @@ import os
 import pytest as pytest
 import json
 import asyncio
-import pytest_asyncio
+# import pytest_asyncio
 from pact import Pact, match
 from pathlib import Path
 from typing import (
@@ -50,7 +50,8 @@ def verifier(
             "Processing message: ",
             {"input": msg, "processed_message": data, "context": context},
         )
-        loop = asyncio.get_event_loop()
+        loop = asyncio.new_event_loop()
+        asyncio.set_event_loop(loop)
         result = loop.run_until_complete(handler(data))
         print("Handler result: ", result)
         return result

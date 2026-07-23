@@ -52,7 +52,7 @@ jobs:
           - macos-15-intel
           - macos-15
         # project: ${{ fromJSON(needs.changes.outputs.projects) }}
-        project: [rust]
+        project: [python]
         # project: [dotnet,go,java,js,python,rust]
       fail-fast: false
     runs-on: ${{ matrix.os }}
