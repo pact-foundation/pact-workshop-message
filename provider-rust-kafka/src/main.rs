@@ -160,7 +160,6 @@ mod tests {
         NullRequestFilterExecutor, PactSource, ProviderInfo, ProviderTransport,
         VerificationOptions,
     };
-    use reqwest::Client;
     use serde_json::json;
     use serde_json::Value;
     use std::{collections::HashMap, env, path::PathBuf, sync::Arc};
