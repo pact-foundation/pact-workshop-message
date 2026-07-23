@@ -3,6 +3,8 @@ package io.pactflow.example.kafka;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
+
+
 import au.com.dius.pact.consumer.MessagePactBuilder;
 import au.com.dius.pact.core.model.annotations.Pact;
 import au.com.dius.pact.consumer.dsl.PactDslJsonBody;
@@ -18,7 +20,8 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import com.fasterxml.jackson.databind.ObjectMapper;
+import tools.jackson.databind.ObjectMapper;
+
 
 import static org.junit.jupiter.api.Assertions.assertDoesNotThrow;
 
