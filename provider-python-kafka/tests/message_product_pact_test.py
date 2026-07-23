@@ -13,7 +13,7 @@ from unittest.mock import MagicMock
 
 from server import ProductRepository
 from tests.provider_server import start_provider
-from pact.v3 import Verifier
+from pact import Verifier
 import json
 
 PACT_DIR = (Path(__file__).parent.parent.parent / "consumer-python-kafka" / "pacts").resolve()

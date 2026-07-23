@@ -4,8 +4,7 @@ import pytest as pytest
 import json
 import asyncio
 import pytest_asyncio
-from pact.v3.pact import Pact
-from pact.v3.match import like, regex
+from pact import Pact, match
 from pathlib import Path
 from typing import (
     TYPE_CHECKING,
@@ -59,10 +58,10 @@ def verifier(
 
 def test_receive_a_product_update(pact, handler, verifier):
     event = {
-        "id": like("some-uuid-1234-5678"),
-        "type": like("Product Range"),
-        "name": like("Some Product"),
-        "event": regex("UPDATED", regex=r"^(CREATED|UPDATED|DELETED)$")
+        "id": match.like("some-uuid-1234-5678"),
+        "type": match.like("Product Range"),
+        "name": match.like("Some Product"),
+        "event": match.regex("UPDATED", regex=r"^(CREATED|UPDATED|DELETED)$")
     }
     (
         pact
