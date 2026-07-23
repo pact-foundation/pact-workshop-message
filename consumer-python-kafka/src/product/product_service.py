@@ -1,7 +1,7 @@
 from typing import Dict
 
-from src.product.product import Product, Products
-from src.product.product_repository import ProductRepository
+from product.product import Product, Products
+from product.product_repository import ProductRepository
 
 repository = ProductRepository()
 

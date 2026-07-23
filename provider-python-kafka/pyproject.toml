@@ -7,7 +7,9 @@ authors = ["Yousaf Nabi <you@saf.dev>"]
 readme = 'README.md'
 repository = "https://github.com/pactflow/example-provider-python-kafka"
 homepage = "https://github.com/pactflow/example-provider-python-kafka"
-package-mode = false
+packages = [
+    { include = "*", from = "src" },
+]
 
 [build-system]
 requires = ["poetry-core>=1.0.0"]

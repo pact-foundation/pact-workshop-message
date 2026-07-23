@@ -11,8 +11,8 @@ from typing import (
     TYPE_CHECKING,
     Any,
 )
-from src.product.product_service import receive_product_update
-from src.product.product import Products
+from product.product_service import receive_product_update
+from product.product import Products
 
 CONSUMER_NAME = "pactflow-example-consumer-python-kafka"
 PROVIDER_NAME = os.getenv("PACT_PROVIDER", "pactflow-example-provider-python-kafka")

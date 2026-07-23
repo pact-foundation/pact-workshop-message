@@ -7,8 +7,10 @@ authors = ["Mike Geeves <mike.geeves@bearly-compiling.com>"]
 readme = 'README.md'
 repository = "https://github.com/pactflow/example-consumer-python-kafka"
 homepage = "https://github.com/pactflow/example-consumer-python-kafka"
-package-mode = false
-
+packages = [
+    { include = "_kafka", from = "src" },
+    { include = "product", from = "src" }
+]
 [build-system]
 requires = ["poetry-core>=1.0.0"]
 build-backend = "poetry.core.masonry.api"
