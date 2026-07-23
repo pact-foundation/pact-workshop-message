@@ -162,7 +162,7 @@ jobs:
           - windows-latest
           - macos-15-intel
           - macos-15
-        project: ${{ fromJSON(needs.changes.outputs.projects) }}
+        project: ${{ fromJSON(needs.async-changes.outputs.projects) }}
         # project: [python]
         # project: [dotnet,go,java,js,python,rust]
       fail-fast: false
