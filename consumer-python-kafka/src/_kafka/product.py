@@ -4,7 +4,7 @@ import asyncio
 import json
 from confluent_kafka import Consumer
 from typing import Dict
-from src.product.product_service import receive_product_update
+from product.product_service import receive_product_update
 logger = logging.getLogger(__name__)
 
 def message_handler(event):

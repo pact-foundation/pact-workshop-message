@@ -1,4 +1,4 @@
-from src.product.product import Product, Products
+from product.product import Product, Products
 
 
 # To try and keep the examples as similar as possible, the service class follows

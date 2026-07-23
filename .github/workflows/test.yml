@@ -43,7 +43,6 @@ jobs:
   test:
     name: ${{matrix.project}}-${{matrix.os}}
     if: ${{ needs.changes.outputs.projects != '[]' }}
-    # if: ${{ matrix.project == 'rust' || matrix.project == 'dotnet' || matrix.project == 'go' || matrix.project == 'java' || matrix.project == 'js' || matrix.project == 'python' }}
     needs: changes
     strategy:
       matrix:
@@ -53,6 +52,8 @@ jobs:
           - macos-15-intel
           - macos-15
         project: ${{ fromJSON(needs.changes.outputs.projects) }}
+        # project: [python]
+        # project: [dotnet,go,java,js,python,rust]
       fail-fast: false
     runs-on: ${{ matrix.os }}
     defaults:

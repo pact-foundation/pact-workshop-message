@@ -11,9 +11,9 @@ import pytest as pytest
 from pathlib import Path
 from unittest.mock import MagicMock
 
-from src.server import ProductRepository
+from server import ProductRepository
 from tests.provider_server import start_provider
-from pact.v3 import Verifier
+from pact import Verifier
 import json
 
 PACT_DIR = (Path(__file__).parent.parent.parent / "consumer-python-kafka" / "pacts").resolve()
@@ -65,12 +65,13 @@ def test_producer() -> None:
         state_provider_function="state_provider_function",
     ) as provider_url:
       verifier = (
-          Verifier()
-          .set_state(
+          Verifier("pactflow-example-provider-python-kafka")
+          .state_handler(
               f"{provider_url}/set_provider_state",
+              body=False,
               teardown=True,
           )
-          .set_info("pactflow-example-provider-python-kafka", url=f"{provider_url}/produce_message")
+          .add_transport(url=f"{provider_url}/produce_message")
           .add_source(PACT_DIR / "pactflow-example-consumer-python-kafka-pactflow-example-provider-python-kafka.json")
       )
       verifier.verify()

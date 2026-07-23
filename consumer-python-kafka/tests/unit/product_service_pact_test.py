@@ -3,16 +3,15 @@ import os
 import pytest as pytest
 import json
 import asyncio
-import pytest_asyncio
-from pact.v3.pact import Pact
-from pact.v3.match import like, regex
+# import pytest_asyncio
+from pact import Pact, match
 from pathlib import Path
 from typing import (
     TYPE_CHECKING,
     Any,
 )
-from src.product.product_service import receive_product_update
-from src.product.product import Products
+from product.product_service import receive_product_update
+from product.product import Products
 
 CONSUMER_NAME = "pactflow-example-consumer-python-kafka"
 PROVIDER_NAME = os.getenv("PACT_PROVIDER", "pactflow-example-provider-python-kafka")
@@ -51,7 +50,8 @@ def verifier(
             "Processing message: ",
             {"input": msg, "processed_message": data, "context": context},
         )
-        loop = asyncio.get_event_loop()
+        loop = asyncio.new_event_loop()
+        asyncio.set_event_loop(loop)
         result = loop.run_until_complete(handler(data))
         print("Handler result: ", result)
         return result
@@ -59,10 +59,10 @@ def verifier(
 
 def test_receive_a_product_update(pact, handler, verifier):
     event = {
-        "id": like("some-uuid-1234-5678"),
-        "type": like("Product Range"),
-        "name": like("Some Product"),
-        "event": regex("UPDATED", regex=r"^(CREATED|UPDATED|DELETED)$")
+        "id": match.like("some-uuid-1234-5678"),
+        "type": match.like("Product Range"),
+        "name": match.like("Some Product"),
+        "event": match.regex("UPDATED", regex=r"^(CREATED|UPDATED|DELETED)$")
     }
     (
         pact

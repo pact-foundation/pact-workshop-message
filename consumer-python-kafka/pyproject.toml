@@ -7,18 +7,24 @@ authors = ["Mike Geeves <mike.geeves@bearly-compiling.com>"]
 readme = 'README.md'
 repository = "https://github.com/pactflow/example-consumer-python-kafka"
 homepage = "https://github.com/pactflow/example-consumer-python-kafka"
-package-mode = false
-
+packages = [
+    { include = "_kafka", from = "src" },
+    { include = "product", from = "src" }
+]
 [build-system]
 requires = ["poetry-core>=1.0.0"]
 build-backend = "poetry.core.masonry.api"
 
 [tool.poetry.dependencies]
-python = "^3.11"
-confluent-kafka = "^2.6.0"
+python = "^3.14"
+confluent-kafka = "^2.15.0"
 
 [tool.poetry.dev-dependencies]
-pytest = "9.0.2"
-pytest-asyncio = "^1.0.0"
-pytest-mock = "^3.14.0"
-pact-python = "^2.2.2"
+pytest = "9.1.1"
+pytest-asyncio = "^1.4.0"
+pytest-mock = "^3.15.1"
+pact-python = "^3.4.0"
+[tool]
+  [tool.pytest]
+
+  asyncio_default_fixture_loop_scope = "session"

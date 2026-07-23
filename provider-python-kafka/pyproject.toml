@@ -7,19 +7,22 @@ authors = ["Yousaf Nabi <you@saf.dev>"]
 readme = 'README.md'
 repository = "https://github.com/pactflow/example-provider-python-kafka"
 homepage = "https://github.com/pactflow/example-provider-python-kafka"
-package-mode = false
+packages = [
+    { include = "*", from = "src" },
+]
 
 [build-system]
 requires = ["poetry-core>=1.0.0"]
 build-backend = "poetry.core.masonry.api"
 
 [tool.poetry.dependencies]
-python = "^3.11"
-confluent-kafka = "^2.6.0"
-flask = "^3.0.3"
+python = "^3.14"
+confluent-kafka = "^2.15.0"
+flask = "^3.1.3"
 
 [tool.poetry.dev-dependencies]
-pytest = "9.0.2"
-pytest-asyncio = "^1.0.0"
-pytest-mock = "^3.14.0"
-pact-python = "^2.2.2"
+pytest = "9.1.1"
+pytest-asyncio = "^1.4.0"
+pytest-mock = "^3.15.1"
+pact-python = "^3.4.0"
+requests = "^2.34.2"

@@ -1,4 +1,4 @@
-from src._kafka.product import consume_messages
+from _kafka.product import consume_messages
 
 if __name__ == "__main__":
     consume_messages()
