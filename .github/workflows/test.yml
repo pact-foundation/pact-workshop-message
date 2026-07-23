@@ -28,7 +28,7 @@ jobs:
           ref: ${{ github.sha }}
           filters: |
             rust:
-              - '**-rust-**/**'
+              - '**-rust-kafka/**'
             dotnet:
               - '**-dotnet-**/**'
             go:
@@ -135,3 +135,114 @@ jobs:
             make test
           fi
         working-directory: provider-${{matrix.project}}-kafka
+  async-changes:
+    runs-on: ubuntu-latest
+    outputs:
+      projects: ${{ steps.filter.outputs.async-changes }}
+    steps:
+      - uses: actions/checkout@v7
+      - uses: dorny/paths-filter@v4
+        id: filter
+        name: check changes
+        with:
+          base: main
+          ref: ${{ github.sha }}
+          filters: |
+            rust:
+              - '**-rust-kafka-sync/**'
+
+  async-test:
+    name: ${{matrix.project}}-${{matrix.os}}
+    if: ${{ needs.async-changes.outputs.projects != '[]' }}
+    needs: async-changes
+    strategy:
+      matrix:
+        os: 
+          - ubuntu-latest
+          - windows-latest
+          - macos-15-intel
+          - macos-15
+        project: ${{ fromJSON(needs.changes.outputs.projects) }}
+        # project: [python]
+        # project: [dotnet,go,java,js,python,rust]
+      fail-fast: false
+    runs-on: ${{ matrix.os }}
+    defaults:
+      run:
+        shell: bash
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions-rust-lang/setup-rust-toolchain@v1
+        if: ${{ matrix.project == 'rust' }}
+        with:
+          cache: false
+      - uses: actions/setup-go@v7
+        if: ${{ matrix.project == 'go' }}
+        with:
+          go-version: '^1.22.x'
+          cache-dependency-path: |
+                consumer-go-kafka-sync/go.sum
+                provider-go-kafka-sync/go.sum
+      - name: setup librdkafka windows
+        if: ${{ matrix.os == 'windows-latest' && matrix.project == 'go' }}
+        shell: powershell
+        run: |
+          cd consumer-go-kafka
+          go mod tidy
+          PowerShell -NoProfile -ExecutionPolicy Unrestricted -Command "& {Start-Process PowerShell -ArgumentList '-NoProfile -ExecutionPolicy Unrestricted -File ""D:\a\pact-workshop-message\pact-workshop-message\consumer-go-kafka\setup_rdkafka.ps1""' -Verb RunAs}";
+          "CGO_ENABLED=1" >> $env:GITHUB_ENV
+          "CGO_LDFLAGS=-L$env:TMP -lrdkafka" >> $env:GITHUB_ENV
+          "$env:TMP" >> $env:GITHUB_PATH
+      - uses: actions/setup-dotnet@v6
+        if: ${{ matrix.project == 'dotnet' }}
+        with:
+          dotnet-version: '8.x.x'
+      - uses: actions/setup-java@v5
+        if: ${{ matrix.project == 'java' }}
+        with:
+          distribution: 'zulu'
+          java-version: '17'
+      - uses: actions/setup-node@v7
+        if: ${{ matrix.project == 'js' }}
+        with:
+          node-version: 24
+      - uses: actions/setup-python@v7
+        if: ${{ matrix.project == 'python' }}
+        with:
+          python-version: '3.14.6'
+      - name: install (consumer)
+        run: make install
+        if: ${{matrix.project == 'js'||matrix.project == 'go'||matrix.project == 'python'}}
+        working-directory: consumer-${{matrix.project}}-kafka-sync
+      - name: pact test (consumer)
+        run: |
+          if [ "${{ matrix.project }}" == "python" ]; then
+              if [ "${{ matrix.os }}" == "windows-latest" ]; then
+                source $(poetry env info --path)/Scripts/activate
+                python -m pytest -s
+              else
+                source $(poetry env info --path)/bin/activate
+                make test
+              fi
+          else
+            make test
+          fi
+        working-directory: consumer-${{matrix.project}}-kafka-sync
+      - name: install (provider)
+        run: make install
+        if: ${{matrix.project == 'js'||matrix.project == 'go'||matrix.project == 'python'}}
+        working-directory: provider-${{matrix.project}}-kafka-sync
+      - name: pact verification (provider)
+        run: |
+          if [ "${{ matrix.project }}" == "python" ]; then
+              if [ "${{ matrix.os }}" == "windows-latest" ]; then
+                source $(poetry env info --path)/Scripts/activate
+                python -m pytest -s
+              else
+                source $(poetry env info --path)/bin/activate
+                make test
+              fi
+          else
+            make test
+          fi
+        working-directory: provider-${{matrix.project}}-kafka-sync
