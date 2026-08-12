@@ -6,7 +6,7 @@ require (
 	github.com/confluentinc/confluent-kafka-go/v2 v2.11.1
 	github.com/gin-gonic/gin v1.12.0
 	github.com/google/uuid v1.6.0
-	github.com/pact-foundation/pact-go/v2 v2.5.1
+	github.com/pact-foundation/pact-go/v2 v2.7.0
 )
 
 require (
