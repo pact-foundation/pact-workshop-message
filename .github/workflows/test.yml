@@ -19,8 +19,8 @@ jobs:
     outputs:
       projects: ${{ steps.filter.outputs.changes }}
     steps:
-      - uses: actions/checkout@v7
-      - uses: dorny/paths-filter@v4
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7
+      - uses: dorny/paths-filter@ceb8a2b8f2d89434be7ff52d3de7ec3738c5cc9d # v4
         id: filter
         name: check changes
         with:
@@ -60,12 +60,12 @@ jobs:
       run:
         shell: bash
     steps:
-      - uses: actions/checkout@v7
-      - uses: actions-rust-lang/setup-rust-toolchain@v1
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7
+      - uses: actions-rust-lang/setup-rust-toolchain@166cdcfd11aee3cb47222f9ddb555ce30ddb9659 # v1
         if: ${{ matrix.project == 'rust' }}
         with:
           cache: false
-      - uses: actions/setup-go@v7
+      - uses: actions/setup-go@b7ad1dad31e06c5925ef5d2fc7ad053ef454303e # v7
         if: ${{ matrix.project == 'go' }}
         with:
           go-version: '^1.22.x'
@@ -82,20 +82,20 @@ jobs:
           "CGO_ENABLED=1" >> $env:GITHUB_ENV
           "CGO_LDFLAGS=-L$env:TMP -lrdkafka" >> $env:GITHUB_ENV
           "$env:TMP" >> $env:GITHUB_PATH
-      - uses: actions/setup-dotnet@v6
+      - uses: actions/setup-dotnet@a98b56852c35b8e3190ac28c8c2271da59106c68 # v6
         if: ${{ matrix.project == 'dotnet' }}
         with:
           dotnet-version: '8.x.x'
-      - uses: actions/setup-java@v5
+      - uses: actions/setup-java@b6effb05e454b25005698d916606bdc6ffcbf961 # v5
         if: ${{ matrix.project == 'java' }}
         with:
           distribution: 'zulu'
           java-version: '17'
-      - uses: actions/setup-node@v7
+      - uses: actions/setup-node@820762786026740c76f36085b0efc47a31fe5020 # v7
         if: ${{ matrix.project == 'js' }}
         with:
           node-version: 24
-      - uses: actions/setup-python@v7
+      - uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97 # v7
         if: ${{ matrix.project == 'python' }}
         with:
           python-version: '3.14.7'
@@ -140,8 +140,8 @@ jobs:
     outputs:
       async-projects: ${{ steps.filter.outputs.changes }}
     steps:
-      - uses: actions/checkout@v7
-      - uses: dorny/paths-filter@v4
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7
+      - uses: dorny/paths-filter@ceb8a2b8f2d89434be7ff52d3de7ec3738c5cc9d # v4
         id: filter
         name: check changes
         with:
@@ -171,12 +171,12 @@ jobs:
       run:
         shell: bash
     steps:
-      - uses: actions/checkout@v7
-      - uses: actions-rust-lang/setup-rust-toolchain@v1
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7
+      - uses: actions-rust-lang/setup-rust-toolchain@166cdcfd11aee3cb47222f9ddb555ce30ddb9659 # v1
         if: ${{ matrix.project == 'rust' }}
         with:
           cache: false
-      - uses: actions/setup-go@v7
+      - uses: actions/setup-go@b7ad1dad31e06c5925ef5d2fc7ad053ef454303e # v7
         if: ${{ matrix.project == 'go' }}
         with:
           go-version: '^1.22.x'
@@ -193,20 +193,20 @@ jobs:
           "CGO_ENABLED=1" >> $env:GITHUB_ENV
           "CGO_LDFLAGS=-L$env:TMP -lrdkafka" >> $env:GITHUB_ENV
           "$env:TMP" >> $env:GITHUB_PATH
-      - uses: actions/setup-dotnet@v6
+      - uses: actions/setup-dotnet@a98b56852c35b8e3190ac28c8c2271da59106c68 # v6
         if: ${{ matrix.project == 'dotnet' }}
         with:
           dotnet-version: '8.x.x'
-      - uses: actions/setup-java@v5
+      - uses: actions/setup-java@b6effb05e454b25005698d916606bdc6ffcbf961 # v5
         if: ${{ matrix.project == 'java' }}
         with:
           distribution: 'zulu'
           java-version: '17'
-      - uses: actions/setup-node@v7
+      - uses: actions/setup-node@820762786026740c76f36085b0efc47a31fe5020 # v7
         if: ${{ matrix.project == 'js' }}
         with:
           node-version: 24
-      - uses: actions/setup-python@v7
+      - uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97 # v7
         if: ${{ matrix.project == 'python' }}
         with:
           python-version: '3.14.7'
