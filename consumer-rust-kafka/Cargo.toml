@@ -17,5 +17,5 @@ rdkafka = { version ="~0.39.0"}
 rdkafka = { version ="~0.39.0", features=["cmake-build"] }
 
 [dev-dependencies]
-pact_consumer = "=1.4.5"
+pact_consumer = "=1.4.10"
 expectest = "=0.12.0"
