@@ -98,7 +98,7 @@ jobs:
       - uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97 # v7
         if: ${{ matrix.project == 'python' }}
         with:
-          python-version: '3.14.8'
+          python-version: '3.15.0'
       - name: install (consumer)
         run: make install
         if: ${{matrix.project == 'js'||matrix.project == 'go'||matrix.project == 'python'}}
@@ -209,7 +209,7 @@ jobs:
       - uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97 # v7
         if: ${{ matrix.project == 'python' }}
         with:
-          python-version: '3.14.8'
+          python-version: '3.15.0'
       - name: install (consumer)
         run: make install
         if: ${{matrix.project == 'js'||matrix.project == 'go'||matrix.project == 'python'}}
