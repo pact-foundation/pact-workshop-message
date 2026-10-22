@@ -998,7 +998,7 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "39cab71617ae0d63f51a36d69f866391735b51691dbda63cf6f96d042b63efeb"
 dependencies = [
  "libc",
- "windows-sys 0.52.0",
+ "windows-sys 0.61.2",
 ]
 
 [[package]]
@@ -2569,9 +2569,9 @@ dependencies = [
 
 [[package]]
 name = "pact_matching"
-version = "2.0.11"
+version = "2.1.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "f662d9d53655698d084765145add9dac5050965135bff7f157e8fbfa7c765d86"
+checksum = "feafcdb4e50321e8f049a0bbbc89d43ae97d252abb3926607ab5943bbf61afcf"
 dependencies = [
  "ansi_term",
  "anyhow",
@@ -2599,6 +2599,7 @@ dependencies = [
  "rand 0.9.5",
  "regex",
  "reqwest",
+ "rustls",
  "semver",
  "serde",
  "serde_json",
@@ -2654,9 +2655,9 @@ dependencies = [
 
 [[package]]
 name = "pact_verifier"
-version = "1.4.7"
+version = "1.5.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "639e59fc58801ea1f2f2062d2785264a88a8ea636f9b9fde410478dfa5e05261"
+checksum = "60ffd352ab96b92f771bf4ce268fccde16fb3a5c8964f07989d533ecce430cb6"
 dependencies = [
  "ansi_term",
  "anyhow",
@@ -3330,7 +3331,7 @@ dependencies = [
  "errno",
  "libc",
  "linux-raw-sys",
- "windows-sys 0.52.0",
+ "windows-sys 0.61.2",
 ]
 
 [[package]]
@@ -3387,7 +3388,7 @@ dependencies = [
  "security-framework",
  "security-framework-sys",
  "webpki-root-certs",
- "windows-sys 0.52.0",
+ "windows-sys 0.61.2",
 ]
 
 [[package]]
@@ -3855,7 +3856,7 @@ dependencies = [
  "getrandom 0.4.3",
  "once_cell",
  "rustix",
- "windows-sys 0.52.0",
+ "windows-sys 0.61.2",
 ]
 
 [[package]]
@@ -4493,7 +4494,7 @@ version = "0.1.11"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "c2a7b1c03c876122aa43f3020e6c3c3ee5c05081c9a00739faf7503aeba10d22"
 dependencies = [
- "windows-sys 0.52.0",
+ "windows-sys 0.61.2",
 ]
 
 [[package]]
