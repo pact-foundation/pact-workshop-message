@@ -1009,7 +1009,7 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "39cab71617ae0d63f51a36d69f866391735b51691dbda63cf6f96d042b63efeb"
 dependencies = [
  "libc",
- "windows-sys 0.52.0",
+ "windows-sys 0.61.2",
 ]
 
 [[package]]
@@ -2517,9 +2517,9 @@ dependencies = [
 
 [[package]]
 name = "pact_consumer"
-version = "1.4.10"
+version = "1.4.11"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "06e5806937eddaa0e8b366ededb548fe0846f3667b149acc22813f0ceba065ad"
+checksum = "c9994e4aa15b2e1e069045e26f1540f58b897265cda56bec53c71e4e16170f5a"
 dependencies = [
  "anyhow",
  "async-trait",
@@ -2543,9 +2543,9 @@ dependencies = [
 
 [[package]]
 name = "pact_matching"
-version = "2.0.11"
+version = "2.1.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "f662d9d53655698d084765145add9dac5050965135bff7f157e8fbfa7c765d86"
+checksum = "feafcdb4e50321e8f049a0bbbc89d43ae97d252abb3926607ab5943bbf61afcf"
 dependencies = [
  "ansi_term",
  "anyhow",
@@ -2573,6 +2573,7 @@ dependencies = [
  "rand 0.9.5",
  "regex",
  "reqwest",
+ "rustls",
  "semver",
  "serde",
  "serde_json",
@@ -2587,9 +2588,9 @@ dependencies = [
 
 [[package]]
 name = "pact_mock_server"
-version = "2.2.5"
+version = "2.2.6"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "603b29059b82fd329ebf209014b7bd34ead76a79f452aa3da304e15c87831a85"
+checksum = "1d1509049d1f5e961c0e8a7f309c68b56d955368ffe9cd62c7cabdf7b0833096"
 dependencies = [
  "anyhow",
  "bytes",
@@ -2618,9 +2619,9 @@ dependencies = [
 
 [[package]]
 name = "pact_models"
-version = "1.3.15"
+version = "1.3.17"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "6ea1ea209582c65e8547fca473da735154280c594a075c67d93908367ab920de"
+checksum = "f437b635e0db2900c10be4b4f3688e370f5fff5ec3c87b6013e8aed1c5311683"
 dependencies = [
  "anyhow",
  "ariadne",
@@ -2648,6 +2649,7 @@ dependencies = [
  "regex",
  "regex-syntax",
  "reqwest",
+ "rustls",
  "semver",
  "serde",
  "serde_json",
@@ -3279,7 +3281,7 @@ dependencies = [
  "errno",
  "libc",
  "linux-raw-sys",
- "windows-sys 0.52.0",
+ "windows-sys 0.61.2",
 ]
 
 [[package]]
@@ -3345,7 +3347,7 @@ dependencies = [
  "security-framework",
  "security-framework-sys",
  "webpki-root-certs",
- "windows-sys 0.52.0",
+ "windows-sys 0.61.2",
 ]
 
 [[package]]
@@ -3779,10 +3781,10 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "32497e9a4c7b38532efcdebeef879707aa9f794296a4f0244f6f69e9bc8574bd"
 dependencies = [
  "fastrand",
- "getrandom 0.3.4",
+ "getrandom 0.4.3",
  "once_cell",
  "rustix",
- "windows-sys 0.52.0",
+ "windows-sys 0.61.2",
 ]
 
 [[package]]
@@ -4418,7 +4420,7 @@ version = "0.1.11"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "c2a7b1c03c876122aa43f3020e6c3c3ee5c05081c9a00739faf7503aeba10d22"
 dependencies = [
- "windows-sys 0.52.0",
+ "windows-sys 0.61.2",
 ]
 
 [[package]]
