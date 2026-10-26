@@ -21,7 +21,7 @@ confluent-kafka = "^2.15.0"
 
 [tool.poetry.dev-dependencies]
 pytest = "9.1.1"
-pytest-asyncio = "1.4.0"
+pytest-asyncio = "1.4.1"
 pytest-mock = "3.16.0"
 pact-python = "3.4.1"
 [tool]
