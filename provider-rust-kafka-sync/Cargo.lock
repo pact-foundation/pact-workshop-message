@@ -2570,9 +2570,9 @@ dependencies = [
 
 [[package]]
 name = "pact_matching"
-version = "2.1.0"
+version = "2.2.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "feafcdb4e50321e8f049a0bbbc89d43ae97d252abb3926607ab5943bbf61afcf"
+checksum = "e460c0d96b970569d79c854f16dbe53f685dc80a8a9d9729f306baf69a4b6cd9"
 dependencies = [
  "ansi_term",
  "anyhow",
@@ -2649,6 +2649,7 @@ dependencies = [
  "semver",
  "serde",
  "serde_json",
+ "serde_urlencoded",
  "sxd-document",
  "tracing",
  "uuid",
@@ -2656,9 +2657,9 @@ dependencies = [
 
 [[package]]
 name = "pact_verifier"
-version = "1.5.0"
+version = "1.6.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "60ffd352ab96b92f771bf4ce268fccde16fb3a5c8964f07989d533ecce430cb6"
+checksum = "38b37c9126fd5d4c3d10851fc56ad5fb3e643d600220aeca9f57dda1c2659600"
 dependencies = [
  "ansi_term",
  "anyhow",
