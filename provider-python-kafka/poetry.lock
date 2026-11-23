@@ -13,13 +13,13 @@ files = [
 
 [[package]]
 name = "certifi"
-version = "2026.10.23"
+version = "2026.11.20"
 description = "Python package for providing Mozilla's CA Bundle."
 optional = false
 python-versions = ">=3.7"
 files = [
-    {file = "certifi-2026.10.23-py3-none-any.whl", hash = "sha256:e9b54de76e530bb6cf0ccd036787103acb58fd42ba930ea8bf948ddbaa2f61d1"},
-    {file = "certifi-2026.10.23.tar.gz", hash = "sha256:a9895e6e2758b371e0545e321a3a8fd1fcfd9829ada8824a936dfb16aaaf36cd"},
+    {file = "certifi-2026.11.20-py3-none-any.whl", hash = "sha256:7422df25243767b9877031a2248cb14d09ddac9beee846f4cef3d5c9191d488f"},
+    {file = "certifi-2026.11.20.tar.gz", hash = "sha256:af1cb240a8133f105aa52684a3a3258339d7f2fd0bd4e2812698ff5cf5588c4e"},
 ]
 
 [[package]]
@@ -844,28 +844,28 @@ compat-v2 = ["click (>=8.0,<9.0)", "pact-python-cli (>=2.5,<3.0)", "psutil (>=7.
 
 [[package]]
 name = "pact-python-ffi"
-version = "0.5.12.1"
+version = "0.5.13.0"
 description = "Python bindings for the Pact FFI library"
 optional = false
 python-versions = ">=3.11"
 files = [
-    {file = "pact_python_ffi-0.5.12.1-cp311-abi3-macosx_12_0_arm64.whl", hash = "sha256:13a52870794da25b38c099c6aaa227defda168ce6ff74fb2c7240e95e7a72dde"},
-    {file = "pact_python_ffi-0.5.12.1-cp311-abi3-macosx_12_0_x86_64.whl", hash = "sha256:c46423feb88ea71d0bad2b4ef2bfc448fdcd435eb44fd52e1d947beba4789733"},
-    {file = "pact_python_ffi-0.5.12.1-cp311-abi3-manylinux_2_28_aarch64.whl", hash = "sha256:54116313f8bba8abb607720cce7fd1f36b14bf5a7010c3bf086681dc3e985f24"},
-    {file = "pact_python_ffi-0.5.12.1-cp311-abi3-manylinux_2_28_x86_64.whl", hash = "sha256:683d73a6f53158442103fccbae7fde40e224a2feb7b535d91037f12170741c71"},
-    {file = "pact_python_ffi-0.5.12.1-cp311-abi3-musllinux_1_2_aarch64.whl", hash = "sha256:a2943d1f16cfcb349e7efd5f6e7019a1b5aff1b37f5b1b47b96cabb037fcfeb0"},
-    {file = "pact_python_ffi-0.5.12.1-cp311-abi3-musllinux_1_2_x86_64.whl", hash = "sha256:28da4b20f5abb242e01166f43d80a218d636256b7a35dc233817f20acb29c4b0"},
-    {file = "pact_python_ffi-0.5.12.1-cp311-abi3-win_amd64.whl", hash = "sha256:05aa42d42b2d65d1ee4079046aa5e026fdf34b0e1a07a9741489dbd3d233b7c1"},
-    {file = "pact_python_ffi-0.5.12.1-cp311-abi3-win_arm64.whl", hash = "sha256:a7f722ced30e8d1fa19bb194a3a5ab111ed4caefe0fc193fa6aa707e61f372cd"},
-    {file = "pact_python_ffi-0.5.12.1-cp315-abi3.abi3t-macosx_12_0_arm64.whl", hash = "sha256:49aa1420ae2a05724cbf8f7f89ac389db925991872d0ca845223495501e39e81"},
-    {file = "pact_python_ffi-0.5.12.1-cp315-abi3.abi3t-macosx_12_0_x86_64.whl", hash = "sha256:6d48741843cd7645fe7b2f245a39344d6695497f72ac31f1a09e620287193489"},
-    {file = "pact_python_ffi-0.5.12.1-cp315-abi3.abi3t-manylinux_2_28_aarch64.whl", hash = "sha256:11c17f85459c7f91dcdf67c558bd84bb7b384b96a71ad7338208b3e96dbf9a4b"},
-    {file = "pact_python_ffi-0.5.12.1-cp315-abi3.abi3t-manylinux_2_28_x86_64.whl", hash = "sha256:fb693b63835dfaf45fcc31592febf65f709665260443a0f55697980317be16c8"},
-    {file = "pact_python_ffi-0.5.12.1-cp315-abi3.abi3t-musllinux_1_2_aarch64.whl", hash = "sha256:f1601f10e4bcf21dbb1b793732eb7f80fd305ac655e627bdaec94f89ddcd7bf9"},
-    {file = "pact_python_ffi-0.5.12.1-cp315-abi3.abi3t-musllinux_1_2_x86_64.whl", hash = "sha256:a4a28251e9670fbccf88153ad09583e8f298122963e518c4e0c2656e17f85ba6"},
-    {file = "pact_python_ffi-0.5.12.1-cp315-abi3.abi3t-win_amd64.whl", hash = "sha256:8b432459ee375201c77412e9689e48200500b3c12d31f8c5ee9584e88bac976d"},
-    {file = "pact_python_ffi-0.5.12.1-cp315-abi3.abi3t-win_arm64.whl", hash = "sha256:cbfd4db63b890ed7fa04d7e4d10192cd929d1fa5fff3a75ad6f1d888e0d9f721"},
-    {file = "pact_python_ffi-0.5.12.1.tar.gz", hash = "sha256:212cca011dc7aef02bc705642ad55552ef26810401e59e514fd933344c760ccd"},
+    {file = "pact_python_ffi-0.5.13.0-cp311-abi3-macosx_12_0_arm64.whl", hash = "sha256:9aa8a5b211935b04622e5f50817194e3703672191e02b08f0944eee89d80e932"},
+    {file = "pact_python_ffi-0.5.13.0-cp311-abi3-macosx_12_0_x86_64.whl", hash = "sha256:1fb0ebb6df1b3b2a6c09d3c4c72def2dad423ead9363d089f32e408e96fe9f39"},
+    {file = "pact_python_ffi-0.5.13.0-cp311-abi3-manylinux_2_28_aarch64.whl", hash = "sha256:6f9d18571ef17c35ff801f7bb24b089def17dd67dae1952b03eb89f8cdc240db"},
+    {file = "pact_python_ffi-0.5.13.0-cp311-abi3-manylinux_2_28_x86_64.whl", hash = "sha256:eada8fd7072bb7c36818dbe03f0c89c2a8a36e384eecf0a5b9031a0356181439"},
+    {file = "pact_python_ffi-0.5.13.0-cp311-abi3-musllinux_1_2_aarch64.whl", hash = "sha256:662055ce43490e2920b0c808c945e912e88265e509c69e0dcd3bc25ed112ca66"},
+    {file = "pact_python_ffi-0.5.13.0-cp311-abi3-musllinux_1_2_x86_64.whl", hash = "sha256:1e6a4a2b27e77a19d46c33f216c5054e0c751b911aaef581db5b4373089763c0"},
+    {file = "pact_python_ffi-0.5.13.0-cp311-abi3-win_amd64.whl", hash = "sha256:4ec15990f095ef0953bfa795ec9dd01b7e2b6280fc3a4aa9c88073a904365c04"},
+    {file = "pact_python_ffi-0.5.13.0-cp311-abi3-win_arm64.whl", hash = "sha256:29b656fce79aab232124945c1d99a998870763733f6532a7d72c25757dda3a09"},
+    {file = "pact_python_ffi-0.5.13.0-cp315-abi3.abi3t-macosx_12_0_arm64.whl", hash = "sha256:70b8e8119f70920350dfff68c7792f8c2fb276806f53c971964ca77ed4698d12"},
+    {file = "pact_python_ffi-0.5.13.0-cp315-abi3.abi3t-macosx_12_0_x86_64.whl", hash = "sha256:d560bdb4c643fafe2dfaa54872a014446aa292b5f013225c8bc8e924379d812e"},
+    {file = "pact_python_ffi-0.5.13.0-cp315-abi3.abi3t-manylinux_2_28_aarch64.whl", hash = "sha256:b98ac211cdc98f4afa6386c7d716d03e3c8a07657700f0cec3bd85e34add2d8f"},
+    {file = "pact_python_ffi-0.5.13.0-cp315-abi3.abi3t-manylinux_2_28_x86_64.whl", hash = "sha256:9d2f713a213e8185197189f47d950d840dfe59a23edaef4f6cdf08ade46fd985"},
+    {file = "pact_python_ffi-0.5.13.0-cp315-abi3.abi3t-musllinux_1_2_aarch64.whl", hash = "sha256:e79a36b3c0c7887a60d316538002be1fbb3a35ba64020c1b88579e1d5ed7cec2"},
+    {file = "pact_python_ffi-0.5.13.0-cp315-abi3.abi3t-musllinux_1_2_x86_64.whl", hash = "sha256:54bdad4914ee8516e3a962c9c34682c31612e09fd028d41467c85a7957a1ac64"},
+    {file = "pact_python_ffi-0.5.13.0-cp315-abi3.abi3t-win_amd64.whl", hash = "sha256:9fbeee1a205c7ff46b600b691ac39f9a7c757e2ba088d1472f06d2730abb2479"},
+    {file = "pact_python_ffi-0.5.13.0-cp315-abi3.abi3t-win_arm64.whl", hash = "sha256:df51e787bb6d07ba52b7ed350f48fc2886aa0aa49859eb9a1a5ec3ee5745cfa8"},
+    {file = "pact_python_ffi-0.5.13.0.tar.gz", hash = "sha256:1f5d587020128afa0e9c3cee1432a2a6a58ad93f88f289d42a906d7b473e0fc2"},
 ]
 
 [package.dependencies]
